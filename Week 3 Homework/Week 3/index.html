@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="ENTER NAME HERE">
+    <meta name="description" content="week 3 class attribute assignment">
+
+    <link rel="stylesheet" href="./Style/styles.css">
+
+
+    <title> Saveja Feliz week 3</title>
+</head>
+
+<body>
+
+    <!-- My Part-->
+     
+
+
+ 
+    <!-- Background Image -->
+    <div id="bg">
+
+        <!-- Wrapper: Holds all of the page content, and let's us center everything -->
+        <div id="wrapper">
+
+
+            <!-- Header ------------- -->
+            <div id="header" class="boarder-unity">
+                <h1 id="hello" class="gds">Welcome &nbsp; to &nbsp; GDS111</h1>
+            </div>
+
+            <!-- Navigation --------------->
+            <div id="nav-bar" class="border-unity">
+                <!-- Buttons -->
+                <div class="btn-container">
+                    <button class="buttonThing">Button</button>
+                    <button class="buttonThing">Button</button>
+                    <button class="buttonThing">Button</button>
+                    <button class="buttonThing">Button</button>
+                </div>
+            </div>
+
+            <!-- Main Content! -->
+            <div id="main-content" class="border-unity">
+                <!-- Give this a background image! -->
+                <div id="pictureDiv" class="boarder-unity">
+
+                    <!-- SHAPES MUST GO INTO THIS DIV, ONCE DONE Shape Title can disappear -->
+                    <div id="shapeContent">
+                         <canvas id="canvas" width="800" height="800"></canvas>
+
+                         <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Canvas Shapes Practice</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1>Canvas Shapes</h1>
+    <canvas id="canvas" width="800" height="800" style="border:1px solid"></canvas>
+
+    <script>
+        var canvas = document.getElementById("canvas")
+        var ctx = canvas.getContext("2d")
+
+
+        // makes a simple line
+        ctx.strokeStyle = "green"
+        ctx.lineWidth = "5"
+        ctx.beginPath()
+        ctx.moveTo(0,560)
+        ctx.lineTo(260, 380)
+        ctx.stroke()
+
+
+        
+        // Square
+        var xSquare = 20
+        var ySquare = 160
+        var sizeSquare = 100
+        var angleInDegreesSquare = 0
+        var angleSquare = angleInDegreesSquare * Math.PI / 180
+        var cxSquare = xSquare + sizeSquare / 2
+        var cySquare = ySquare + sizeSquare / 2
+
+        ctx.save()
+        ctx.translate(cxSquare, cySquare)
+        ctx.rotate(angleSquare)
+
+        ctx.fillStyle = "yellow"
+        ctx.strokeStyle = "black"
+        ctx.lineWidth = 5
+        ctx.beginPath()
+        ctx.rect(-sizeSquare / 2, -sizeSquare / 2, sizeSquare, sizeSquare)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.restore()
+
+
+
+
+        // Circle
+        var cxCircle = 320
+        var cyCircle = 300
+        var radiusCircle = 64
+        var angleInDegreesCircle = 45
+        var angleCircle = angleInDegreesCircle * Math.PI / 180
+
+        ctx.save()
+        ctx.translate(cxCircle, cyCircle)
+        ctx.rotate(angleCircle)
+
+        ctx.fillStyle = "yellow"
+        ctx.strokeStyle = "red"
+        ctx.lineWidth = 5
+        ctx.beginPath()
+        ctx.arc(0, 0, radiusCircle, 0, 2 * Math.PI, false)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+
+        ctx.restore()
+
+
+
+        // Pentagon
+        var sides = 5
+        var radius = 89
+        var x = 565
+        var y = 233
+        var step = (Math.PI * 2) / sides
+
+        var angleInDegrees = 23
+        var angle = angleInDegrees * Math.PI / 180
+
+        ctx.save()  
+        ctx.translate(x, y)
+        ctx.rotate(angle)   
+
+        ctx.fillStyle = "#ff00ff"
+        ctx.strokeStyle = "#00ffff"
+        ctx.lineWidth = 5
+        ctx.beginPath()
+        var rotPentagon = -Math.PI / 2 
+        for (var i = 0; i <= sides; i++) {
+            var px = radius * Math.cos(rotPentagon)
+            var py = radius * Math.sin(rotPentagon)
+            if (i === 0) {
+                ctx.moveTo(px, py)
+            } else {
+                ctx.lineTo(px, py)
+            }
+            rotPentagon += step
+        }
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+        
+
+
+
+        // Star
+        var cx = 94
+        var cy = 205
+        var spikes = 5
+        var outerRadius = 100
+        var innerRadius = 50
+        var step = Math.PI / spikes
+        var angleInDegrees = 50
+        var angle = angleInDegrees * Math.PI / 180
+
+        ctx.save()
+        ctx.translate(cx, cy)
+        ctx.rotate(angle)
+
+        ctx.fillStyle = "yellow"
+        ctx.strokeStyle = "#rgb(32,32,32)"
+        ctx.lineWidth = 5
+        ctx.beginPath()
+        ctx.moveTo(0, -outerRadius)
+        var rotStar = Math.PI / 2 * 3
+        for (var i = 0; i < spikes; i++) {
+            var x = Math.cos(rotStar) * outerRadius
+            var y = Math.sin(rotStar) * outerRadius
+            ctx.lineTo(x, y)
+            rotStar += step
+
+            x = Math.cos(rotStar) * innerRadius
+            y = Math.sin(rotStar) * innerRadius
+            ctx.lineTo(x, y)
+            rotStar += step
+        }
+        ctx.lineTo(0, -outerRadius)
+        ctx.closePath()
+        ctx.fill()
+        ctx.stroke()
+        ctx.restore()
+
+
+        // // Line
+        // var x1Line = 900
+        // var y1Line = 30
+        // var x2Line = 999
+        // var y2Line = 300
+        // var angleInDegreesLine = 20
+        // var angleLine = angleInDegreesLine * Math.PI / 280
+
+        // var cxLine = (x1Line + x2Line) / 400
+        // var cyLine = (y1Line + y2Line) / 400
+
+        // ctx.save() 
+        // ctx.translate(cxLine, cyLine) 
+        // ctx.rotate(angleLine) 
+
+        // ctx.strokeStyle = "#rgb(255,0)"
+        // ctx.lineWidth = 5
+        // ctx.beginPath()
+        // ctx.moveTo(90, 20)
+        // ctx.lineTo(25, 300) 
+        // ctx.stroke()
+
+
+
+
+        ctx.restore()
+
+
+
+        
+  
+    </script>
+
+
+</body>
+</html>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
